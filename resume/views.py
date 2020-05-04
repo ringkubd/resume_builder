@@ -6,11 +6,18 @@ from .utils import render_to_pdf
 def home(request):
 	return render(request, 'resume/homepage.html')
 
+def profile(request):
+	return render(request, 'resume/profile.html')
+
 
 def test(request, *args, **kwargs):
+	print(request)
 	context = {
-		'user_name': 'John Doe',
-		'title': 'web developer',
+		'user_name': request.POST["firstName"] + ' '  + request.POST["lastName"],
+		'title': request.POST["title"],
+		'about_me': '',
+		'experience': '',
+		'education': '',
 	}
 	pdf = render_to_pdf('pdf/test.html', context)
 	if pdf:

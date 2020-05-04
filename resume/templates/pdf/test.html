@@ -1,49 +1,43 @@
 <html>
     <head>
         <title>test</title>
-        <style type="text/css">
-            body {
-                font-weight: 200;
-                font-size: 14px;
-            }
-            .header {
-                font-size: 20px;
-                font-weight: 100;
-                text-align: center;
-                color: #007cae;
-            }
-            .title {
-                font-size: 22px;
-                font-weight: 100;
-               /* text-align: right;*/
-               padding: 10px 20px 0px 20px;  
-            }
-            .title span {
-                color: #007cae;
-            }
-            .details {
-                padding: 10px 20px 0px 20px;
-                text-align: left !important;
-                /*margin-left: 40%;*/
-            }
-            .hrItem {
-                border: none;
-                height: 1px;
-                /* Set the hr color */
-                color: #333; /* old IE */
-                background-color: #fff; /* Modern Browsers */
-            }
-        </style>
+        <link rel="stylesheet" href="test.css">
     </head>
+    <style>
+        @page{
+            margin: -10px;
+        }
+    </style>
     <body>
-        <div class='wrapper'>
-            <div class='header'>
-                <p class='title'>Resume</p>
+        <div class='header'>
+            <p class='name'>{{user_name}}</p>
+            <p class='title'>{{title}}</p>
+        </div>
+        <div class='resume-body'>
+            <div class="section">
+                <div class="section-name">About me</div>
+                <div class="section-content">
+                    <p>
+                        {{about_me}}
+                    </p>   
+                </div>
             </div>
-        <div>
-        <div class='resume'>
-            <h1 style="margin: 0;">{{user_name}}</h1>
-            <h3 style="margin: 0;">{{title}}</h3>  
+            <div class="section">
+                <div class="section-name">Experience</div>
+                <div class="section-content">
+                    <p>
+                        {{experience}}
+                    </p>
+                </div>
+
+            </div>
+            <div class="section">
+                <div class="section-name">Education</div>
+                <div class="section-content"></div>
+                <p>
+                    {{education}}
+                </p>
+            </div>
         </div>
     </div>
     </body>

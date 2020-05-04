@@ -1,0 +1,54 @@
+*{
+	box-sizing: border-box;
+}
+
+body {
+	font-weight: 200;
+	font-size: 14px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.header {
+	font-size: 20px;
+	font-weight: 100;
+	text-align: center;
+	background-color: #007cae;
+	color: #fff;
+	width: 100%;
+	height: 92pt;
+}
+
+.name {
+	margin: 0;
+	padding-top: 30px;
+	font-size: 35px;
+}
+
+.title {
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+}
+
+.resume-body {
+	padding: 10pt;
+	/* background-color: antiquewhite; */
+	width: 100%;
+	height: 750pt;
+}
+
+.section {
+	width: 575pt;
+	/* height: 100pt; */
+	/* background-color: aquamarine; */
+	margin-bottom: 10pt;
+	padding: 10pt;
+}
+
+.section-name {
+	/* background-color: blue; */
+	font-size: 20px;
+}
+
+.section-content {
+	/* background-color: chartreuse; */
+}
