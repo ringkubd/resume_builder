@@ -1,60 +1,23 @@
-<!doctype html>
-<html lang="en">
+{% extends "resume/base.html" %}
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="">
-	<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-	<meta name="generator" content="Jekyll v3.8.6">
-	<title>Cover Template · Bootstrap</title>
+{% block content %}
 
-	<link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/cover/">
-
-	<!-- Bootstrap core CSS -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-
-
-	<!-- Custom styles for this template -->
-	<link href="cover.css" rel="stylesheet">
-</head>
-
-<style>
-	body{
-		height: 100vh;
-	}
-</style>
-
-<body class="text-center">
-	<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-		<header class="masthead mb-auto">
-			<div class="inner">
-				<h3 class="masthead-brand">Resume Buillder</h3>
-				<nav class="nav nav-masthead justify-content-center">
-					<a class="nav-link active" href="/">Home</a>
-					<a class="nav-link" href="/admin">Admin</a>
-					<a class="nav-link" href="/profile">Profile</a>
-					<a class="nav-link" href="/test">Test</a>
-				</nav>
-			</div>
-		</header>
-
-		<main role="main" class="inner cover">
-			<h1 class="cover-heading">Homepage</h1>
-			<p class="lead">Turn your experiences into job offers</p>
-			<p class="lead">
-				<a href="#" class="btn btn-lg btn-secondary">Get Started</a>
+	<section class="jumbotron text-center">
+		<div class="container">
+			<h1>Library System</h1>
+			<p class="lead text-muted"></p>
+			<p>
+				<a href="{% url 'resume:home' %}" class="btn btn-primary my-2">Home</a>
+				<a href="{% url 'resume:profile' %}" class="btn btn-secondary my-2">Profile</a>
+				{% for reminder in reminders %}
+				<p class="oustanding-loan">{{reminder}}</p>
+				{% endfor %}
+				{% if messages %}
+					{% for message in messages %}
+					<p class="oustanding-loan">{{ message }}</p>
+					{% endfor %}
+				{% endif %}
 			</p>
-		</main>
-
-		<footer class="mastfoot mt-auto" style="bottom: 0;">
-			<div class="inner">
-				<p>Universty project made by <a href="https://gawema.github.io/"> Gabriele Westh Mannucci</a></p>
-			</div>
-		</footer>
-	</div>
-</body>
-
-</html>
+		</div>
+	</section>
+{% endblock %}

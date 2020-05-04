@@ -1,26 +1,13 @@
-<!doctype html>
-<html lang="en">
+{% extends "resume/base.html" %}
 
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta name="description" content="">
-		<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-		<meta name="generator" content="Jekyll v3.8.6">
-		<title>Profile</title>
+{% block content %}
 
-		<link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/cover/">
-		<!-- Bootstrap core CSS -->
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-	</head>
-	<body class="bg-light">
 		<div class="container">
 			<div class="py-5 text-center">
 			</div>
 
 			<div class="row">
-				<div class="col-md-8 order-md-1">
+				<div class="col-md-12 order-md-1">
 				<h4 class="mb-3">Your Profile</h4>
 				<form class="needs-validation" action="{% url 'resume:test' %}" method="post" novalidate>
 					{% csrf_token %}
@@ -65,8 +52,6 @@
 						Please enter a valid phone number.
 					</div>
 					</div>
-
-					<hr class="mb-4">
 					<button class="btn btn-primary btn-lg btn-block" type="submit">Generate Resume</button>
 				</form>
 				</div>
@@ -77,3 +62,5 @@
 		</div>
 	</body>
 </html>
+
+{% endblock %}
