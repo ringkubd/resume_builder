@@ -25,18 +25,22 @@
             <div class="section">
                 <div class="section-name">Experience</div>
                 <div class="section-content">
+                {% for experience in experiences  %}
                     <p>
-                        {{experience}}
+                        {{experience.user}}
                     </p>
+                {% endfor  %}
                 </div>
 
             </div>
             <div class="section">
                 <div class="section-name">Education</div>
                 <div class="section-content"></div>
-                <p>
-                    {{education}}
-                </p>
+                    {% for education in educations  %}
+                    <p>
+                        {{education.description}}
+                    </p>
+                {% endfor  %}
             </div>
         </div>
     </div>

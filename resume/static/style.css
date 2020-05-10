@@ -1,0 +1,11 @@
+.right-column{
+	border: 4px rgb(146, 146, 146) solid;
+	border-radius: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.with-margin{
+	margin-bottom: 50px;
+}

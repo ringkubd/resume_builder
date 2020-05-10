@@ -3,7 +3,6 @@
 from django.conf import settings
 from django.db import migrations, models
 import django.db.models.deletion
-import secrets
 
 
 class Migration(migrations.Migration):
@@ -16,13 +15,12 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='PasswordResetRequest',
+            name='UserProfile',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('token', models.CharField(default=secrets.token_urlsafe, max_length=43)),
-                ('created_timestamp', models.DateTimeField(auto_now_add=True)),
-                ('updated_timestamp', models.DateTimeField(auto_now=True)),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('phone', models.CharField(blank=True, max_length=25)),
+                ('bio', models.TextField(blank=True, max_length=300)),
+                ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
     ]

@@ -112,3 +112,13 @@ def delete_account(request):
                 print("fail delete")
 
     return render(request, 'authentication/delete_account.html')
+
+
+@login_required
+def update_account(request):
+    request.user.first_name = request.POST['firstName']
+    request.user.last_name = request.POST['lastName']
+    request.user.email = request.POST['email']
+    print(request.user.first_name)
+    request.user.save()
+    return HttpResponseRedirect(reverse('resume:profile'))
