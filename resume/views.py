@@ -120,7 +120,6 @@ def settings(request):
 	}
 	return render(request, 'resume/settings.html', context)
 
-
 @login_required
 def test(request, *args, **kwargs):
 	experiences = Experience.objects.filter(user=request.user)

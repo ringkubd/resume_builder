@@ -16,7 +16,7 @@ def login(request):
             request, username=request.POST['user'], password=request.POST['password'])
         if user:
             dj_login(request, user)
-            return HttpResponseRedirect(reverse('resume:home'))
+            return HttpResponseRedirect(reverse('resume:profile'))
         else:
             context = {
                 'error': 'Bad username or password.'

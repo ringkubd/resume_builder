@@ -3,17 +3,17 @@
 {% block content %}
 {% load static %}
 
-	<div class="profile">
+	<div class="settings">
 		<h1>Account Settings</h1>
 		<h2>Gabriele Mannucci</h2>
+		{% comment %} <p style="width: 45%;">
+			<a href="{% url 'authentication:logout' %}" class="btn" style="float: none;">Reset Password</a>
+		</p> {% endcomment %}
 		<p style="width: 45%;">
-			<button class="btn" style="float: none;">Reset Password</button>
-		</p>
-		<p style="width: 45%;">
-			<button class="btn" style="float: none;">Delete Account</button>
+			<a href="{% url 'authentication:delete_account' %}"  class="btn" style="float: none;">Delete Account</a>
 		</p> 
 		<p style="width: 45%;">
-			<button class="btn" style="float: none;">Log Out</button>
+			<a href="{% url 'authentication:logout' %}" class="btn" style="float: none;">Log Out</a>
 		</p>
 		<br>
 		<h1>Resume Settings</h2>
