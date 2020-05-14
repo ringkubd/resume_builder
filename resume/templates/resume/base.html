@@ -15,9 +15,9 @@
 <body>
 	<main role="main">
 		<div class="container">
-			<h1 class="logo">Resum</h1>
+			{% comment %} <h1 class="logo">Resumi</h1> {% endcomment %}
 			<div class="CTA">
-				<h1>CREATE RESUME</h1>
+				<h3>CREATE RESUME</h3>
 			</div>
 			<nav class="menubar">
 				<a id="profile" class="{% if request.path == '/profile' %}active{% endif %}" href="{% url 'resume:profile' %}"><i class="fa fa-user"></i></a>
