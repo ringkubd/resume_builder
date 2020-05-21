@@ -1,54 +1,88 @@
-*{
-	box-sizing: border-box;
+@import url("https://fonts.googleapis.com/css?family=Nunito:100,400,900|Montserrat|Roboto");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-	font-weight: 200;
-	font-size: 14px;
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 200;
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif;
 }
+
 .header {
-	font-size: 20px;
-	font-weight: 100;
-	text-align: center;
-	background-color: #007cae;
-	color: #fff;
-	width: 100%;
-	height: 92pt;
+  font-size: 20px;
+  font-weight: 100;
+  text-align: center;
+  background: linear-gradient(to right, #3FB6A8, #7ED386);
+  color: #fff;
+  width: 100%;
+  height: 95pt;
 }
-
-.name {
-	margin: 0;
-	padding-top: 30px;
-	font-size: 35px;
+.header .name {
+  margin: 0;
+  padding-top: 35px;
+  font-size: 28px;
 }
-
-.title {
-	margin: 0;
-	padding: 0;
-	font-size: 20px;
+.header .profession {
+  margin: 5px;
+  font-size: 20px;
+}
+.header .contacts {
+  text-align: center;
+  font-weight: 100;
+  font-size: 16px;
+}
+.header .contacts div {
+  margin: auto auto auto 150px;
+  float: left;
 }
 
 .resume-body {
-	padding: 10pt;
-	/* background-color: antiquewhite; */
-	width: 100%;
-	height: 750pt;
+  padding: 20pt;
+  width: 100%;
+  height: 747pt;
+}
+.resume-body .section {
+  width: 555pt;
+  margin-bottom: 10pt;
+  padding: 10pt;
+  border-bottom: 3px #7ED386 solid;
+}
+.resume-body .section:last-child {
+  border-bottom: none;
+}
+.resume-body .section .section-name {
+  font-size: 26px;
+  margin-bottom: 15px;
+  color: #3FB6A8;
+}
+.resume-body .section .section-content {
+  margin-bottom: 30px;
+  font-family: "Roboto", sans-serif;
+}
+.resume-body .section .section-content.skill {
+  margin-left: 20px;
+}
+.resume-body .section .section-content .phone, .resume-body .section .section-content .email {
+  float: left;
+  margin: 20px 30px 10px 0;
+}
+.resume-body .section .section-content .title {
+  font-size: 22px;
+  margin-bottom: 3px;
+}
+.resume-body .section .section-content .subtitle {
+  font-size: 20px;
+}
+.resume-body .section .section-content .dates {
+  float: right;
+  margin-top: -20px;
+  font-size: 14px;
+}
+.resume-body .section .section-content .description {
+  font-size: 18px;
 }
 
-.section {
-	width: 575pt;
-	/* height: 100pt; */
-	/* background-color: aquamarine; */
-	margin-bottom: 10pt;
-	padding: 10pt;
-}
-
-.section-name {
-	/* background-color: blue; */
-	font-size: 20px;
-}
-
-.section-content {
-	/* background-color: chartreuse; */
-}
+/*# sourceMappingURL=test.css.map */

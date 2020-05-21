@@ -10,37 +10,50 @@
     </style>
     <body>
         <div class='header'>
-            <p class='name'>{{user_name}}</p>
-            <p class='title'>{{title}}</p>
+            <p class='name'>{{full_name}}</p>
+            <p class='profession'>{{profession}}</p>
+  
         </div>
         <div class='resume-body'>
             <div class="section">
                 <div class="section-name">About me</div>
                 <div class="section-content">
-                    <p>
+                    <p class="description">
                         {{about_me}}
-                    </p>   
+                    </p> 
+                    <div class="subtitle phone">phone: +4500000000</div>
+                    <div class="subtitle email">email: gab.mannu@email.com</div>
+                    <br>
+                    <br>
                 </div>
             </div>
             <div class="section">
                 <div class="section-name">Experience</div>
-                <div class="section-content">
                 {% for experience in experiences  %}
-                    <p>
-                        {{experience.user}}
-                    </p>
-                {% endfor  %}
+                <div class="section-content">
+                    <div class="title">{{experience.company}} - <span class="subtitle">{{experience.role}}</span> </div>
+                    <div class="dates">{{experience.startDate}} - {{experience.endDate}}</div>
+                    <div class="description">{{experience.description}}</div>
                 </div>
-
+                {% endfor  %}
             </div>
             <div class="section">
                 <div class="section-name">Education</div>
-                <div class="section-content"></div>
-                    {% for education in educations  %}
-                    <p>
-                        {{education.description}}
-                    </p>
+                {% for education in educations  %}
+                <div class="section-content">
+                    <div class="title">{{education.school}} - <span class="subtitle">{{education.degree}}</span> </div>
+                    <div class="dates">{{education.startDate}} - {{education.endDate}}</div>
+                    <div class="description">{{education.description}}</div>
+                </div>
                 {% endfor  %}
+            </div>
+            <div class="section">
+                <div class="section-name">Skills</div>
+                <div class="section-content skill">
+                    {% for skill in skills  %}
+                    <li class="subtitle">{{skill.name}}</li>
+                    {% endfor  %}
+                </div>
             </div>
         </div>
     </div>

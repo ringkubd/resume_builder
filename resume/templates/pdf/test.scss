@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito:100,400,900|Montserrat|Roboto");
+
+
+$darker-color-theme: #3FB6A8;
+$ligther-color-theme: #7ED386;
+$theme-gradient:linear-gradient(to right, $darker-color-theme, $ligther-color-theme);
+
+
+// A4 size: 595.4 × 842 points
+$header-height: 95pt;
+$body-height: 747pt;
+
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-weight: 200;
+	font-size: 14px;
+	font-family: "Montserrat", sans-serif;
+
+}
+
+.header {
+	font-size: 20px;
+	font-weight: 100;
+	text-align: center;
+	background: $theme-gradient;
+	color: #fff;
+	width: 100%;
+	height: $header-height;
+	
+	.name {
+		margin: 0;
+		padding-top: 35px;
+		font-size: 28px;
+	}
+	
+	.profession {
+		margin: 5px;
+		font-size: 20px;
+	}
+	
+	.contacts {
+		text-align: center;
+		font-weight: 100;
+		font-size: 16px;
+		div { 
+			margin: auto auto auto 150px;
+			float: left;
+		}
+	}
+
+
+}
+
+
+.resume-body {
+	padding: 20pt;
+	width: 100%;
+	height: $body-height;
+
+	.section {
+		width: 555pt;
+		margin-bottom: 10pt;
+		padding: 10pt;
+		border-bottom: 3px $ligther-color-theme solid;
+
+		&:last-child {
+			border-bottom: none
+
+		}
+		
+		.section-name {
+			font-size: 26px;
+			margin-bottom: 15px;
+			color: $darker-color-theme;
+		}
+
+		.section-content {
+			margin-bottom: 30px;
+			font-family: "Roboto", sans-serif;
+
+			&.skill {
+				margin-left: 20px;
+			}
+			
+			.phone, .email { 
+				float: left;
+				margin: 20px 30px 10px 0;
+			}
+			
+			.title {
+				font-size: 22px;
+				margin-bottom: 3px;
+			}
+			.subtitle {
+				font-size: 20px;
+			}
+			.dates {
+				float: right;
+				margin-top: -20px;
+				font-size: 14px;
+			}
+			.description {
+				font-size: 18px;
+			}
+		}
+	}
+}
+	
+	
+	
+	
+
