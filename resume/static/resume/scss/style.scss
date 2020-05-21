@@ -13,6 +13,7 @@ $h2-font: "Roboto", sans-serif;
 
 *{
   box-sizing: border-box;
+  font-family: $h2-font;
 }
 
 body {
@@ -118,6 +119,8 @@ h1{
       position: relative;
       left: 24%;
       width: 60%;
+      max-height: 100%;
+      overflow: hidden;
 
       h1 {
         font-family: $h1-font;
@@ -236,6 +239,64 @@ h1{
       }
       .pagination-btns .active{
           background-color: $darker-color-theme;
+      }
+    }
+
+    .skills {
+
+      a {
+        text-decoration: none;
+        color: white;
+      }
+
+      .btn {
+        float: none;
+      }
+
+      .skill-wrapper{
+        overflow: hidden;
+      }
+      
+      .skill-container {
+        display: list-item;
+        max-height: 300px;
+        overflow: auto;
+        margin-top: -55px;
+    
+        .skill {
+          border: 2px $darker-color-theme solid;
+          padding: 15px;
+          margin: 7px;
+          cursor: pointer;
+
+          .delete{
+            display: none
+          }
+
+          &.new {
+            &:hover{
+              background-color: white;
+              border: 2px $darker-color-theme solid;
+              color: #333;
+            }
+          }
+         
+
+          &:hover {
+            background-color: tomato;
+            border: 2px tomato solid;;
+            color: white;
+
+            .name {
+              opacity: 0;
+              display: none;
+            }
+
+            .delete {
+              display: block;
+            }
+          }
+        }
       }
     }
 

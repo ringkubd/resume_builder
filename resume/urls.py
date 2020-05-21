@@ -21,6 +21,10 @@ urlpatterns = [
     path('education/update_education', views.update_education, name='update_education'),
     path('education/delete_education/<int:id>', views.delete_education, name='delete_education'),
 
+    path('skills', views.skills, name='skills'),
+    path('skills/create_skill', views.create_skill, name='create_skill'),
+    path('skills/delete_skill/<int:id>', views.delete_skill, name='delete_skill'),
+
     path('settings', views.settings, name='settings'),
-    path('test', views.test, name='test'),
+    path('generate_resume', views.generate_resume, name='generate_resume'),
 ]

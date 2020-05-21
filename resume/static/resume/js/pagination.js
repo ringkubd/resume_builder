@@ -23,3 +23,9 @@ function newForm(){
 	var margin = 378 * nSlides;
 	element.style.marginLeft = '-'+margin+'px';
 }
+
+
+function newSkill(){
+	var element = document.getElementsByClassName("skill-container")[0];
+	element.style.marginTop = 0;
+}

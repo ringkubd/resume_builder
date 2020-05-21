@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito:400,900|Montserrat|Roboto");
 * {
   box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 
 body {
@@ -104,6 +105,8 @@ h1 {
   position: relative;
   left: 24%;
   width: 60%;
+  max-height: 100%;
+  overflow: hidden;
 }
 
 .container .content .profile h1, .container .content .experience h1, .container .content .education h1, .container .content .skills h1, .container .content .settings h1, .container .content .auth h1 {
@@ -223,6 +226,58 @@ h1 {
 
 .container .content .experience .pagination-btns .active, .container .content .education .pagination-btns .active {
   background-color: #3FB6A8;
+}
+
+.container .content .skills a {
+  text-decoration: none;
+  color: white;
+}
+
+.container .content .skills .btn {
+  float: none;
+}
+
+.container .content .skills .skill-wrapper {
+  overflow: hidden;
+}
+
+.container .content .skills .skill-container {
+  display: list-item;
+  max-height: 300px;
+  overflow: auto;
+  margin-top: -55px;
+}
+
+.container .content .skills .skill-container .skill {
+  border: 2px #3FB6A8 solid;
+  padding: 15px;
+  margin: 7px;
+  cursor: pointer;
+}
+
+.container .content .skills .skill-container .skill .delete {
+  display: none;
+}
+
+.container .content .skills .skill-container .skill.new:hover {
+  background-color: white;
+  border: 2px #3FB6A8 solid;
+  color: #333;
+}
+
+.container .content .skills .skill-container .skill:hover {
+  background-color: tomato;
+  border: 2px tomato solid;
+  color: white;
+}
+
+.container .content .skills .skill-container .skill:hover .name {
+  opacity: 0;
+  display: none;
+}
+
+.container .content .skills .skill-container .skill:hover .delete {
+  display: block;
 }
 
 .container .content .settings ul {

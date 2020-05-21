@@ -7,7 +7,7 @@ from django.urls import reverse
 
 from .utils import render_to_pdf
 
-from .models import Experience, Education
+from .models import Experience, Education, Skill
 from user_profile.models import UserProfile
 
 
@@ -28,28 +28,6 @@ def profile(request):
 	return render(request, 'resume/profile.html', context)
 
 @login_required
-def experience(request):
-	user = request.user
-	experiences = Experience.objects.filter(user=request.user)
-	if experience:
-		context = {
-			'experiences': experiences,
-		}
-		return render(request, 'resume/experience.html', context)
-	return render(request, 'resume/experience.html')
-
-@login_required
-def education(request):
-	user = request.user
-	educations = Education.objects.filter(user=request.user)
-	if educations:
-		context = {
-			'educations': educations,
-		}
-		return render(request, 'resume/education.html', context)
-	return render(request, 'resume/education.html')
-
-@login_required
 def update_user(request):
 	user = request.user
 	user.username = request.POST['username']
@@ -61,6 +39,19 @@ def update_user(request):
 	profile.bio = request.POST['bio']
 	profile.save()
 	return HttpResponseRedirect(reverse('resume:profile'))
+
+################################# CRUD EXPERIENCE
+
+@login_required
+def experience(request):
+	user = request.user
+	experiences = Experience.objects.filter(user=request.user)
+	if experience:
+		context = {
+			'experiences': experiences,
+		}
+		return render(request, 'resume/experience.html', context)
+	return render(request, 'resume/experience.html')
 
 @login_required
 def create_experience(request):
@@ -92,6 +83,19 @@ def delete_experience(request, id):
 	experience.delete()
 	return HttpResponseRedirect(reverse('resume:experience'))
 
+################################# CRUD EDUCAION 
+
+@login_required
+def education(request):
+	user = request.user
+	educations = Education.objects.filter(user=request.user)
+	if educations:
+		context = {
+			'educations': educations,
+		}
+		return render(request, 'resume/education.html', context)
+	return render(request, 'resume/education.html')
+
 @login_required
 def create_education(request):
 	education = Education()
@@ -122,6 +126,36 @@ def delete_education(request, id):
 	education.delete()
 	return HttpResponseRedirect(reverse('resume:education'))
 
+
+################################# CRUD SKILL
+
+@login_required
+def skills(request):
+	user = request.user
+	skills = Skill.objects.filter(user=request.user)
+	skills = skills[::-1] ##reversing the list
+	context = {
+		'skills': skills,
+	}
+	return render(request, 'resume/skills.html', context)
+
+@login_required
+def create_skill(request):
+	skill = Skill()
+	skill.user = request.user
+	skill.name = request.POST['name']
+	skill.save()
+	return HttpResponseRedirect(reverse('resume:skills'))
+
+@login_required
+def delete_skill(request, id):
+	skill = get_object_or_404(Skill, id=id)
+	skill.delete()
+	return HttpResponseRedirect(reverse('resume:skills'))
+
+
+################################# SETTINGS
+
 @login_required
 def settings(request):
 	user = request.user
@@ -132,24 +166,28 @@ def settings(request):
 	}
 	return render(request, 'resume/settings.html', context)
 
+################################# BUILD RESUME
+
 @login_required
-def test(request, *args, **kwargs):
+def generate_resume(request, *args, **kwargs):
+	profile = get_object_or_404(UserProfile, user=request.user)
 	experiences = Experience.objects.filter(user=request.user)
 	educations = Education.objects.filter(user=request.user)
-	print(educations[0])
+	skills = Skill.objects.filter(user=request.user)
 	context = {
-		'user_name': request.user.first_name + ' '  + request.user.last_name,
-		'title': '',
-		'about_me': '',
+		'full_name': request.user.first_name + ' '  + request.user.last_name,
+		'profession': profile.profession,
+		'about_me': profile.bio,
 		'experiences': experiences,
 		'educations': educations,
+		'skills': skills,
 	}
 	pdf = render_to_pdf('pdf/test.html', context)
 	if pdf:
 		response = HttpResponse(pdf, content_type='application/pdf')
 		download = request.GET.get("download")
-		print(download)
 		if download == 'True':
 			response['Content-Disposition'] = 'attachment; filename=test.pdf'
 		return response
 	return HttpResponse('PDF not found')
+

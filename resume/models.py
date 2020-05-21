@@ -23,3 +23,10 @@ class Education(models.Model):
 
 	def __str__(self):
 		return self.school
+
+class Skill(models.Model):
+	user = models.ForeignKey(User, on_delete=models.CASCADE, default='')
+	name = models.CharField(max_length=200)
+
+	def __str__(self):
+		return self.name
