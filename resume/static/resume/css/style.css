@@ -197,6 +197,12 @@ h1 {
   padding-right: 75px;
 }
 
+.container .content .experience .slide .delete, .container .content .education .slide .delete {
+  padding-right: 5px;
+  color: orangered;
+  font-size: 0.9rem;
+}
+
 .container .content .experience .pagination-btns, .container .content .education .pagination-btns {
   /* background-color: lavenderblush; */
   display: inline-block;

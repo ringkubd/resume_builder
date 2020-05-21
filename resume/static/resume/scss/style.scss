@@ -200,15 +200,20 @@ h1{
         overflow: hidden;
       }
 
-      .slide{
+      .slide {
         float: left;
         max-height: 310px;
         width: 378px;
         transition-property: margin;
         transition-duration: 0.6s;
         transition-timing-function: ease-out;
-        .btn{
+        .btn {
           padding-right: 75px;
+        }
+        .delete {
+          padding-right: 5px;
+          color: orangered;
+          font-size: 0.9rem;      
         }
       }
 

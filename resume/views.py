@@ -42,7 +42,7 @@ def experience(request):
 def education(request):
 	user = request.user
 	educations = Education.objects.filter(user=request.user)
-	if experience:
+	if educations:
 		context = {
 			'educations': educations,
 		}
@@ -87,6 +87,12 @@ def update_experience(request):
 	return HttpResponseRedirect(reverse('resume:experience'))
 
 @login_required
+def delete_experience(request, id):
+	experience = get_object_or_404(Experience, id=id)
+	experience.delete()
+	return HttpResponseRedirect(reverse('resume:experience'))
+
+@login_required
 def create_education(request):
 	education = Education()
 	education.user = request.user
@@ -108,6 +114,12 @@ def update_education(request):
 	# education.endDate = request.POST['end']
 	education.description = request.POST['description']
 	education.save()
+	return HttpResponseRedirect(reverse('resume:education'))
+
+@login_required
+def delete_education(request, id):
+	education = get_object_or_404(Education, id=id)
+	education.delete()
 	return HttpResponseRedirect(reverse('resume:education'))
 
 @login_required
