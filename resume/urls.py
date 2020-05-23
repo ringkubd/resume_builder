@@ -26,5 +26,10 @@ urlpatterns = [
     path('skills/delete_skill/<int:id>', views.delete_skill, name='delete_skill'),
 
     path('settings', views.settings, name='settings'),
+    path('settings/set_green', views.set_green, name='set_green'),
+    path('settings/set_pink', views.set_pink, name='set_pink'),
+    path('settings/set_blue', views.set_blue, name='set_blue'),
+    path('settings/set_orange', views.set_orange, name='set_orange'),
+
     path('generate_resume', views.generate_resume, name='generate_resume'),
 ]

@@ -22,7 +22,8 @@ def profile(request):
 		'email': user.email,
 		'phone': profile.phone,
 		'profession': profile.profession,
-		'bio': profile.bio
+		'bio': profile.bio,
+		'theme': profile.color,
 	}
 	return render(request, 'resume/profile.html', context)
 
@@ -42,10 +43,12 @@ def update_user(request):
 
 def experience(request):
 	user = request.user
+	profile = get_object_or_404(UserProfile, user=user)
 	experiences = Experience.objects.filter(user=request.user)
 	if experience:
 		context = {
 			'experiences': experiences,
+			'theme': profile.color,
 		}
 		return render(request, 'resume/experience.html', context)
 	return render(request, 'resume/experience.html')
@@ -81,10 +84,12 @@ def delete_experience(request, id):
 
 def education(request):
 	user = request.user
+	profile = get_object_or_404(UserProfile, user=user)
 	educations = Education.objects.filter(user=request.user)
 	if educations:
 		context = {
 			'educations': educations,
+			'theme': profile.color,
 		}
 		return render(request, 'resume/education.html', context)
 	return render(request, 'resume/education.html')
@@ -121,10 +126,12 @@ def delete_education(request, id):
 
 def skills(request):
 	user = request.user
+	profile = get_object_or_404(UserProfile, user=user)
 	skills = Skill.objects.filter(user=request.user)
 	skills = skills[::-1] ##reversing the list
 	context = {
 		'skills': skills,
+		'theme': profile.color,
 	}
 	return render(request, 'resume/skills.html', context)
 
@@ -149,8 +156,38 @@ def settings(request):
 	context = {
 		'username': user.username,
 		'email': user.email,
+		'theme': profile.color,
 	}
 	return render(request, 'resume/settings.html', context)
+
+def set_blue(request):
+	user = request.user
+	profile = get_object_or_404(UserProfile, user=user)
+	profile.color = 'blue'
+	profile.save()
+	return HttpResponseRedirect(reverse('resume:settings'))
+
+def set_green(request):
+	user = request.user
+	profile = get_object_or_404(UserProfile, user=user)
+	profile.color = 'green'
+	profile.save()
+	return HttpResponseRedirect(reverse('resume:settings'))
+
+def set_orange(request):
+	user = request.user
+	profile = get_object_or_404(UserProfile, user=user)
+	profile.color = 'orange'
+	profile.save()
+	return HttpResponseRedirect(reverse('resume:settings'))
+
+def set_pink(request):
+	user = request.user
+	profile = get_object_or_404(UserProfile, user=user)
+	profile.color = 'pink'
+	profile.save()
+	return HttpResponseRedirect(reverse('resume:settings'))
+
 
 ################################# BUILD RESUME
 
@@ -166,6 +203,7 @@ def generate_resume(request, *args, **kwargs):
 		'experiences': experiences,
 		'educations': educations,
 		'skills': skills,
+		'theme': profile.color,
 	}
 	pdf = render_to_pdf('pdf/test.html', context)
 	if pdf:

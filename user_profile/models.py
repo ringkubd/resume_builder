@@ -7,6 +7,7 @@ class UserProfile(models.Model):
    phone = models.CharField(max_length=25, blank=True)
    profession = models.CharField(max_length=50, blank=True)
    bio = models.TextField(max_length=300, blank=True)
-
+   color = models.CharField(max_length=10, default='green')
+   
    def __str__(self):
       return self.user.username

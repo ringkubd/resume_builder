@@ -21,10 +21,10 @@
 		<h1>Resume Settings</h2>
 		<h2>Change theme</h2>
 		<div class="themes">
-			<div class="theme green active"></div>
-			<div class="theme blue"></div>
-			<div class="theme orange"></div>
-			<div class="theme pink"></div>
+			<a class="theme green {% if theme == 'green' %}active{% endif %}" href="{% url 'resume:set_green' %}"></a>
+			<a class="theme blue {% if theme == 'blue' %}active{% endif %}" href="{% url 'resume:set_blue' %}"></a>
+			<a class="theme orange {% if theme == 'orange' %}active{% endif %}" href="{% url 'resume:set_orange' %}"></a>
+			<a class="theme pink {% if theme == 'pink' %}active{% endif %}" href="{% url 'resume:set_pink' %}"></a>
 		</div>
 	</div>
 

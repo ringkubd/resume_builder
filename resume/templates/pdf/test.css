@@ -1,4 +1,48 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito:100,400,900|Montserrat|Roboto");
+html[data-theme=green] {
+  --darker-color-theme: #3FB6A8;
+  --ligther-color-theme: #7ED386;
+}
+html[data-theme=green] .header {
+  background: linear-gradient(to right, #3FB6A8, #7ED386);
+}
+html[data-theme=green] .section {
+  border-bottom: 3px #7ED386 solid;
+}
+
+html[data-theme=pink] {
+  --darker-color-theme: #fa567d;
+  --ligther-color-theme: #fec48b;
+}
+html[data-theme=pink] .header {
+  background: linear-gradient(to right, #fa567d, #fec48b);
+}
+html[data-theme=pink] .section {
+  border-bottom: 3px #fec48b solid;
+}
+
+html[data-theme=blue] {
+  --darker-color-theme: #1e46e4;
+  --ligther-color-theme: #00a2ff;
+}
+html[data-theme=blue] .header {
+  background: linear-gradient(to right, #1e46e4, #00a2ff);
+}
+html[data-theme=blue] .section {
+  border-bottom: 3px #00a2ff solid;
+}
+
+html[data-theme=orange] {
+  --darker-color-theme: #dc6542;
+  --ligther-color-theme: #ffc300;
+}
+html[data-theme=orange] .header {
+  background: linear-gradient(to right, #dc6542, #ffc300);
+}
+html[data-theme=orange] .section {
+  border-bottom: 3px #ffc300 solid;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -15,7 +59,6 @@ body {
   font-size: 20px;
   font-weight: 100;
   text-align: center;
-  background: linear-gradient(to right, #3FB6A8, #7ED386);
   color: #fff;
   width: 100%;
   height: 95pt;
@@ -48,7 +91,6 @@ body {
   width: 555pt;
   margin-bottom: 10pt;
   padding: 10pt;
-  border-bottom: 3px #7ED386 solid;
 }
 .resume-body .section:last-child {
   border-bottom: none;
@@ -56,7 +98,7 @@ body {
 .resume-body .section .section-name {
   font-size: 26px;
   margin-bottom: 15px;
-  color: #3FB6A8;
+  color: var(--darker-color-theme);
 }
 .resume-body .section .section-content {
   margin-bottom: 30px;
