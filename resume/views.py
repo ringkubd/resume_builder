@@ -14,7 +14,6 @@ from user_profile.models import UserProfile
 def home(request):
 	return render(request, 'resume/homepage.html')
 
-@login_required
 def profile(request):
 	user = request.user
 	profile = get_object_or_404(UserProfile, user=user)
@@ -27,7 +26,6 @@ def profile(request):
 	}
 	return render(request, 'resume/profile.html', context)
 
-@login_required
 def update_user(request):
 	user = request.user
 	user.username = request.POST['username']
@@ -42,7 +40,6 @@ def update_user(request):
 
 ################################# CRUD EXPERIENCE
 
-@login_required
 def experience(request):
 	user = request.user
 	experiences = Experience.objects.filter(user=request.user)
@@ -53,7 +50,6 @@ def experience(request):
 		return render(request, 'resume/experience.html', context)
 	return render(request, 'resume/experience.html')
 
-@login_required
 def create_experience(request):
 	experience = Experience()
 	experience.user = request.user
@@ -65,7 +61,6 @@ def create_experience(request):
 	experience.save()
 	return HttpResponseRedirect(reverse('resume:experience'))
 
-@login_required
 def update_experience(request):
 	id = request.POST['id']
 	experience =get_object_or_404(Experience, id=id)
@@ -77,7 +72,6 @@ def update_experience(request):
 	experience.save()
 	return HttpResponseRedirect(reverse('resume:experience'))
 
-@login_required
 def delete_experience(request, id):
 	experience = get_object_or_404(Experience, id=id)
 	experience.delete()
@@ -85,7 +79,6 @@ def delete_experience(request, id):
 
 ################################# CRUD EDUCAION 
 
-@login_required
 def education(request):
 	user = request.user
 	educations = Education.objects.filter(user=request.user)
@@ -96,7 +89,6 @@ def education(request):
 		return render(request, 'resume/education.html', context)
 	return render(request, 'resume/education.html')
 
-@login_required
 def create_education(request):
 	education = Education()
 	education.user = request.user
@@ -108,7 +100,6 @@ def create_education(request):
 	education.save()
 	return HttpResponseRedirect(reverse('resume:education'))
 
-@login_required
 def update_education(request):
 	id = request.POST['id']
 	education =get_object_or_404(Education, id=id)
@@ -120,7 +111,6 @@ def update_education(request):
 	education.save()
 	return HttpResponseRedirect(reverse('resume:education'))
 
-@login_required
 def delete_education(request, id):
 	education = get_object_or_404(Education, id=id)
 	education.delete()
@@ -129,7 +119,6 @@ def delete_education(request, id):
 
 ################################# CRUD SKILL
 
-@login_required
 def skills(request):
 	user = request.user
 	skills = Skill.objects.filter(user=request.user)
@@ -139,7 +128,6 @@ def skills(request):
 	}
 	return render(request, 'resume/skills.html', context)
 
-@login_required
 def create_skill(request):
 	skill = Skill()
 	skill.user = request.user
@@ -147,7 +135,6 @@ def create_skill(request):
 	skill.save()
 	return HttpResponseRedirect(reverse('resume:skills'))
 
-@login_required
 def delete_skill(request, id):
 	skill = get_object_or_404(Skill, id=id)
 	skill.delete()
@@ -156,7 +143,6 @@ def delete_skill(request, id):
 
 ################################# SETTINGS
 
-@login_required
 def settings(request):
 	user = request.user
 	profile = get_object_or_404(UserProfile, user=user)
@@ -168,7 +154,6 @@ def settings(request):
 
 ################################# BUILD RESUME
 
-@login_required
 def generate_resume(request, *args, **kwargs):
 	profile = get_object_or_404(UserProfile, user=request.user)
 	experiences = Experience.objects.filter(user=request.user)

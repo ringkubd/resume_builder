@@ -51,9 +51,18 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'resume.middleware.LoginRequiredMiddleware'
 ]
 
 ROOT_URLCONF = 'resume_builder.urls'
+
+LOGIN_URL = '/authentication/login/'
+
+LOGIN_EXEMPT_URLS = (
+    r'^authentication/sign_up/$',
+    r'^authentication/logout/$',
+    r'^authentication/password_reset/$',
+)
 
 TEMPLATES = [
     {
