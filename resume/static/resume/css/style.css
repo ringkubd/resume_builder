@@ -159,6 +159,10 @@ h1 {
   color: #070707;
 }
 
+.container .content .profile p.two-in-one, .container .content .experience p.two-in-one, .container .content .education p.two-in-one, .container .content .skills p.two-in-one, .container .content .settings p.two-in-one, .container .content .auth p.two-in-one {
+  display: inline-flex;
+}
+
 .container .content .profile input, .container .content .profile textarea, .container .content .experience input, .container .content .experience textarea, .container .content .education input, .container .content .education textarea, .container .content .skills input, .container .content .skills textarea, .container .content .settings input, .container .content .settings textarea, .container .content .auth input, .container .content .auth textarea {
   border: none;
   padding: 0;

@@ -9,8 +9,9 @@
 			{% csrf_token %}
 			<button class="btn">Save</button>
 			<h2>Full Name</h2>
-			<p>
-				<input type="text" name="username" value="{{username}}">
+			<p class='two-in-one'>
+				<input type="text" name="first_name" value="{{first_name}}">
+				<input type="text" name="last_name" value="{{last_name}}">
 			</p>
 			<h2>Profession</h2>
 			<p>

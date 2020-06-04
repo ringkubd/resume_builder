@@ -18,7 +18,8 @@ def profile(request):
 	user = request.user
 	profile = get_object_or_404(UserProfile, user=user)
 	context = {
-		'username': user.username,
+		'first_name': user.first_name,
+		'last_name': user.last_name,
 		'email': user.email,
 		'phone': profile.phone,
 		'profession': profile.profession,
@@ -29,7 +30,8 @@ def profile(request):
 
 def update_user(request):
 	user = request.user
-	user.username = request.POST['username']
+	user.first_name = request.POST['first_name']
+	user.last_name = request.POST['last_name']
 	user.email = request.POST['email']
 	user.save()
 	profile = get_object_or_404(UserProfile, user=user)
@@ -51,7 +53,10 @@ def experience(request):
 			'theme': profile.color,
 		}
 		return render(request, 'resume/experience.html', context)
-	return render(request, 'resume/experience.html')
+	context = {
+		'theme': profile.color,
+	}
+	return render(request, 'resume/experience.html', context)
 
 def create_experience(request):
 	experience = Experience()
@@ -92,7 +97,10 @@ def education(request):
 			'theme': profile.color,
 		}
 		return render(request, 'resume/education.html', context)
-	return render(request, 'resume/education.html')
+	context = {
+		'theme': profile.color,
+	}
+	return render(request, 'resume/education.html', context)
 
 def create_education(request):
 	education = Education()
