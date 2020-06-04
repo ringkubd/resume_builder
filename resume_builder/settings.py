@@ -41,11 +41,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 3rd party apps
+    'rest_framework',
+    'rest_framework.authtoken',
+    'rest_auth',
+    'django_sass',
+    'django_rq',
+    # my apps
     'resume',
     'authentication',
     'user_profile',
-    'django_sass',
-    'django_rq'
+
 ]
 
 MIDDLEWARE = [
@@ -58,6 +64,16 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'resume.middleware.LoginRequiredMiddleware'
 ]
+
+REST_FRAMEWORK = {
+   'DEFAULT_PERMISSION_CLASSES': [
+      'resume.api.permissions.IsOwnerOrNoAccess',
+      'rest_framework.permissions.IsAuthenticated',
+   ],
+   'DEFAULT_AUTHENTICATION_CLASSES': [
+      'rest_framework.authentication.TokenAuthentication',
+   ]
+}
 
 ROOT_URLCONF = 'resume_builder.urls'
 

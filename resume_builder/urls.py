@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('resume.urls')),
     path('authentication/', include('authentication.urls')),
+    path('api/v1/rest-auth/', include('rest_auth.urls')),
 ]

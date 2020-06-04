@@ -4,6 +4,8 @@ from django.urls import path, include
 
 from resume import views
 
+from .api.views import *
+
 app_name = 'resume'
 
 urlpatterns = [
@@ -32,4 +34,7 @@ urlpatterns = [
     path('settings/set_orange', views.set_orange, name='set_orange'),
 
     path('generate_resume', views.generate_resume, name='generate_resume'),
+
+    path('api/v1/experience/', ExperienceList.as_view()),
+    path('api/v1/experience/<int:pk>/', ExperienceDetail.as_view()),
 ]

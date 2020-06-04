@@ -11,10 +11,12 @@ Django==3.0.5
 django-appconf==1.0.4
 django-compressor==2.4
 django-libsass==0.8
+django-rest-auth==0.9.5
 django-rq==2.3.2
 django-sass==1.0.0
 django-sass-processor==0.8
 django-static-precompiler==1.8.2
+djangorestframework==3.11.0
 html5lib==1.0.1
 idna==2.9
 libsass==0.20.0
@@ -22,6 +24,7 @@ Pillow==7.1.2
 pycparser==2.20
 PyPDF2==1.26.0
 Pyphen==0.9.5
+python-dotenv==0.13.0
 pytz==2020.1
 rcssmin==1.0.6
 redis==3.5.2
