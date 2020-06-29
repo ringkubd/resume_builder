@@ -37,4 +37,6 @@ urlpatterns = [
 
     path('api/v1/experience/', ExperienceList.as_view()),
     path('api/v1/experience/<int:pk>/', ExperienceDetail.as_view()),
+    path('api/v1/education/', EducationList.as_view()),
+    path('api/v1/education/<int:pk>/', EducationDetail.as_view()),
 ]

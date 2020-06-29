@@ -66,13 +66,12 @@ MIDDLEWARE = [
 ]
 
 REST_FRAMEWORK = {
-   'DEFAULT_PERMISSION_CLASSES': [
-      'resume.api.permissions.IsOwnerOrNoAccess',
-      'rest_framework.permissions.IsAuthenticated',
-   ],
-   'DEFAULT_AUTHENTICATION_CLASSES': [
-      'rest_framework.authentication.TokenAuthentication',
-   ]
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    )
 }
 
 ROOT_URLCONF = 'resume_builder.urls'
@@ -84,6 +83,8 @@ LOGIN_EXEMPT_URLS = (
     r'^authentication/logout/$',
     r'^authentication/password_reset/$',
     r'^authentication/request_password_reset/$',
+    r'^api/v1/educations/$',
+    r'^rest-auth/login/$',
 )
 
 RQ_QUEUES = {
